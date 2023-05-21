@@ -5,15 +5,18 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const UAParser = require('ua-parser-js');
 const requestIp = require('request-ip');
+const routes = require('./src/routes');
+const helmet = require('helmet');
 
 
 
-
+// Use Helmet!
+app.use(helmet());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-
+app.use('/', routes);
 
 function parseUserAgent(userAgent) {
     const parser = new UAParser();
