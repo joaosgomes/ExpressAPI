@@ -8,7 +8,21 @@ const requestIp = require('request-ip');
 const routes = require('./src/routes');
 const helmet = require('helmet');
 
+let setCache = function (req, res, next) {
+    // Define period in second = 5 minutes
+    const period = 60 * 5
 
+    // set strict no caching parameters
+    res.set('Cache-control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0')
+
+
+    //  call next() to pass on the request
+    next()
+}
+
+// middleware function
+
+app.use(setCache)
 
 // Use Helmet!
 app.use(helmet());
@@ -35,6 +49,8 @@ app.get('/', (req, res) => {
     const ip = req.header['x-forwarded-for']; // Get IP - allow for proxy
     const deviceInfo = parseUserAgent(userAgent);
     const clientIp = requestIp.getClientIp(req);
+
+
     //console.dir(req);
     console.dir(deviceInfo);
     console.dir(req.ip);

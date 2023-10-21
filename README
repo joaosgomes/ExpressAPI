@@ -17,3 +17,10 @@ git remote add origin https://github.com/joaosgomes/ExpressAPI.git
 git push -u origin main
 
 ````
+
+
+````Code
+
+curl -svo NUL http://localhost:8080/
+
+````
