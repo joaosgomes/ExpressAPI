@@ -30,6 +30,10 @@ app.use(helmet());
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use('/', routes);
 
 function parseUserAgent(userAgent) {
@@ -104,6 +108,11 @@ app.post('/records', (req, res) => {
 app.get('/records', (req, res) => {
     res.json(database.records);
 });
+
+
+app.get('/routes', (req, res) => {});
+
+app.get('/routes', (req, res) => {});
 
 
 

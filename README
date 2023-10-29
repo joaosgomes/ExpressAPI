@@ -1,9 +1,9 @@
 
 # ExpressAPI
 
-## URL cloudflare: https://expressapi.joaosilvagomes.com/
+## URL cloudflare: <https://expressapi.joaosilvagomes.com/>
 
-````Code
+````terminal
 https://github.com/joaosgomes/ExpressAPI.git
 
 git remote add origin https://github.com/joaosgomes/ExpressAPI.git
@@ -20,7 +20,7 @@ git push -u origin main
 
 ````
 
-````Code
+````terminal
 
 curl -svo NUL http://localhost:8080/
 
